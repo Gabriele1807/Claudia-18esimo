@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Heart, ChevronDown } from "lucide-react";
 
 export const OpenLetterSection: React.FC = () => {
-  // Let the letter be open by default or easily expandable, offering both states elegantly
-  const [isOpen, setIsOpen] = useState(true);
+  // The invitation begins sealed so Claudia can open it herself.
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <section id="lettera" className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -47,11 +47,24 @@ export const OpenLetterSection: React.FC = () => {
         transition={{ duration: 1 }}
         className="relative"
       >
-        <div
-          className={`group relative overflow-hidden rounded-2xl transition-all duration-700 bg-[#0b0f17]/95 border ${
-            isOpen ? "border-[#d4af37]/50 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.95),0_0_40px_rgba(212,175,55,0.15)]" : "border-[#d4af37]/25"
-          }`}
-        >
+          <motion.div
+            animate={{ rotateX: isOpen ? 0 : -5, y: isOpen ? 0 : 2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformOrigin: "top center", transformStyle: "preserve-3d" }}
+            role="button"
+            tabIndex={0}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Richiudi la lettera" : "Apri la lettera"}
+            className={`group relative overflow-hidden rounded-2xl transition-all duration-700 bg-[#0b0f17]/95 border ${
+              isOpen ? "border-[#d4af37]/50 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.95),0_0_40px_rgba(212,175,55,0.15)]" : "border-[#d4af37]/25"
+            }`}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setIsOpen((open) => !open);
+              }
+            }}
+          >
           {/* Subtle gold filigree lines along edges */}
           <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent" />
           <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-[#d4af37]/30 to-transparent" />
@@ -82,11 +95,11 @@ export const OpenLetterSection: React.FC = () => {
               Edizione Riservata • 18 Anni
             </span>
             <h3 className="text-xl sm:text-2xl font-serif-luxury font-medium text-[#f4efe6]">
-              {isOpen ? "Lettera a Claudia nel suo 18° Compleanno" : "Tocca per dissigillare la lettera"}
+              {isOpen ? "Lettera a Claudia nel suo 18° Compleanno" : "Un invito personale per Claudia"}
             </h3>
 
             <div className="mt-3 flex items-center gap-2 text-xs text-[#d4af37] font-medium">
-              <span>{isOpen ? "Richiudi lettera" : "Apri e leggi ogni parola"}</span>
+              <span>{isOpen ? "Richiudi la lettera" : "Apri la lettera"}</span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -100,10 +113,11 @@ export const OpenLetterSection: React.FC = () => {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, height: 0, rotateX: -8, y: -6 }}
+                animate={{ opacity: 1, height: "auto", rotateX: 0, y: 0 }}
+                exit={{ opacity: 0, height: 0, rotateX: -8, y: -6 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                style={{ transformOrigin: "top center", transformStyle: "preserve-3d" }}
                 className="overflow-hidden border-t border-[#d4af37]/20"
               >
                 <div className="p-6 sm:p-12 md:p-14 bg-[#080c14]/95 relative">
@@ -125,27 +139,30 @@ export const OpenLetterSection: React.FC = () => {
                     </p>
 
                     <p>
-                      C’è qualcosa di solenne e allo stesso tempo incredibilmente leggero nell’arrivare a questo giorno. Diciotto anni non sono soltanto una cifra stampata sui documenti o il rito di passaggio che tutti aspettano. Per me, questo traguardo è la conferma di ciò che ho sempre saputo dal primo istante in cui ti ho guardata: sei una persona rara, con una grazia che non appartiene al rumore del mondo e una forza silenziosa che continua a togliermi il fiato.
+                      oggi non celebri soltanto un numero. Celebriamo la persona meravigliosa che sei diventata: la tua forza, i tuoi pensieri, il modo in cui riesci a rendere più bello ciò che ti sta intorno senza neanche accorgertene.
                     </p>
 
                     <p>
-                      Ti ho vista ridere fino alle lacrime, ti ho vista proteggere le cose in cui credi con una determinazione incrollabile, e ti ho vista trasformare giornate ordinarie in ricordi che ora custodisco come i pezzi più preziosi della mia vita. Diventare grande non cambierà quell’anima pura e luminosa con cui accogli ogni cosa; servirà soltanto a dare a quella luce uno spazio ancora più vasto in cui brillare.
+                      Diventare maggiorenne è una soglia importante: davanti a te si apre un mondo più grande, fatto di scelte, sogni e possibilità che aspettano solo il tuo passo. E io voglio che tu sappia una cosa semplice, ma immensa: in qualunque strada sceglierai di andare, sarò fiero di te.
                     </p>
 
                     <p>
-                      Non so esattamente dove ti porterà il futuro, quali strade deciderai di percorrere o quali sogni diventeranno realtà per primi. Ma so con assoluta certezza che, in ogni curva, in ogni accelerazione, nei giorni di festa e nei silenzi in cui basterà stringersi la mano, io sarò lì: al tuo fianco, orgoglioso di te prima ancora di qualsiasi traguardo, innamorato di te più di ieri e meno di domani.
+                      Grazie per ogni sorriso che mi hai regalato, per i momenti leggeri e per quelli più veri, per essere casa anche quando tutto sembra correre troppo forte. Con te ho imparato che l'amore non è soltanto dire parole grandi: è esserci, ogni giorno, nelle piccole cose.
                     </p>
 
                     <p>
-                      Goditi ogni singolo respiro di questo nuovo inizio, Claudia. Il mondo là fuori è grande, ma tu hai già tutto ciò che serve per renderlo straordinario.
+                      Oggi guardo te, guardo noi, e non posso che desiderarti un futuro all'altezza della luce che hai dentro. Che questi diciotto anni siano l'inizio di tutto quello che meriti.
+                    </p>
+
+                    <p>
+                      Buon compleanno, amore mio.
                     </p>
                   </div>
 
                   {/* Signature block */}
                   <div className="mt-10 pt-6 border-t border-[#d4af37]/20 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-[#9ba3b4]">Con tutto l’amore del mondo,</p>
-                      <p className="font-serif-luxury text-2xl sm:text-3xl italic text-[#f4efe6] mt-1">Per sempre tuo</p>
+                      <p className="text-xs uppercase tracking-widest text-[#9ba3b4]">Con tutto il mio amore.</p>
                     </div>
 
                     <div className="inline-flex items-center gap-2 text-xs text-[#d4af37]/90 bg-[#121824] px-4 py-2 rounded-full border border-[#d4af37]/30">
@@ -157,7 +174,7 @@ export const OpenLetterSection: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+          </motion.div>
       </motion.div>
     </section>
   );

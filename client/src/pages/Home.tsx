@@ -7,12 +7,16 @@ import { TimelineSection } from "@/components/TimelineSection";
 import { EighteenReasonsSection } from "@/components/EighteenReasonsSection";
 import { F1EasterEgg } from "@/components/F1EasterEgg";
 import { ClosureSection } from "@/components/ClosureSection";
+import { RoseAtmosphere } from "@/components/RoseAtmosphere";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#06080d] text-[#f4efe6] overflow-x-hidden selection:bg-[#d4af37]/30 selection:text-[#fff4d1]">
       {/* Background starry golden dust canvas */}
       <GoldenDustCanvas />
+
+      {/* Independent rose layer: the golden star particles above remain untouched and perpetual. */}
+      <RoseAtmosphere />
 
       {/* Persistent Ambient Sound & Audio experience */}
       <AmbientMusicPlayer />

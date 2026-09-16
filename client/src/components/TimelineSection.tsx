@@ -26,7 +26,7 @@ const milestones: Milestone[] = [
     phase: "Atto II • La Complicità",
     title: "Ore al telefono e risate senza respiro",
     narrative:
-      "Le notti passate a parlare di tutto e di niente, dimenticandosi dell'ora, imparando a memoria i tuoi gesti, il modo in cui pronunci certe parole quando sei felice e come arricci il naso quando hai ragione tu. Ed avevi quasi sempre ragione tu.",
+      "Le notti passate a parlare di tutto e di niente, dimenticandosi dell'ora, imparando a memoria i tuoi gesti, il modo in cui pronunci certe parole quando sei felice e come reagisci quando hai ragione tu. E comunque, avevo quasi sempre ragione io.",
     tag: "Confidenze Notturne",
     icon: <Star className="w-4 h-4 text-[#d4af37]" />,
   },
@@ -35,7 +35,7 @@ const milestones: Milestone[] = [
     phase: "Atto III • I Viaggi e la Strada",
     title: "Fughe al tramonto e strade senza meta",
     narrative:
-      "I finestrini abbassati, la nostra musica in sottofondo e la sensazione che bastasse averti sul sedile accanto per rendere qualsiasi destinazione un posto bellissimo. È con te che ho capito cosa significa sentirsi a casa ovunque.",
+      "Passeggiate senza meta, mano nella mano, risate infinite e la sensazione che bastasse averti sul sedile accanto per rendere qualsiasi destinazione un posto bellissimo. È con te che ho capito cosa significa sentirsi a casa ovunque.",
     tag: "Orizzonti Condivisi",
     icon: <Compass className="w-4 h-4 text-[#d4af37]" />,
   },
@@ -97,6 +97,14 @@ export const TimelineSection: React.FC = () => {
       <div className="relative">
         {/* Continuous Golden Axis */}
         <div className="absolute left-6 sm:left-1/2 top-4 bottom-4 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#d4af37]/40 to-transparent pointer-events-none" />
+
+        {/* Rose placed visibly in the breathing space beside the timeline */}
+        <img
+          src="/manus-storage/claudia-red-rose_95ad43de.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-12 sm:-right-24 top-[18%] z-0 w-32 sm:w-48 opacity-30 rotate-[12deg] mix-blend-screen"
+        />
 
         <div className="space-y-12 sm:space-y-16">
           {milestones.map((item, index) => {

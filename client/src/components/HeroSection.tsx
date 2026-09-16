@@ -23,6 +23,19 @@ export const HeroSection: React.FC = () => {
         <span>16 SETTEMBRE • EDIZIONE SPECIALE</span>
       </motion.div>
 
+      <img
+        src="/manus-storage/claudia-red-rose_95ad43de.png"
+        alt=""
+        aria-hidden="true"
+        className="hero-rose hero-rose-left"
+      />
+      <img
+        src="/manus-storage/claudia-rose-sprig_b6570097.png"
+        alt=""
+        aria-hidden="true"
+        className="hero-rose hero-rose-right"
+      />
+
       {/* Main Hero Typography & Monogram */}
       <div className="relative z-10 max-w-4xl mx-auto my-auto py-8">
         {/* Subtle background golden aura */}
