@@ -13,27 +13,20 @@ const ornaments = [
   { asset: "sprig", side: "right", top: "96%", size: "w-40 sm:w-60", rotate: 8, delay: "4.6s" },
 ];
 
-export const RoseAtmosphere: React.FC = () => {
-  return (
-    <div className="rose-atmosphere" aria-hidden="true">
-      {ornaments.map((ornament, index) => {
-        const isLeft = ornament.side === "left";
-        const source = ornament.asset === "rose"
-          ? "/rose-petal.svg"
-          : "/rose-sprig.svg";
-
-        return (
-          <img
-            key={`${ornament.asset}-${index}`}
-            src={source}
-            alt=""
-            className={`rose-ornament ${ornament.size} ${isLeft ? "rose-from-left" : "rose-from-right"}`}
-            style={{ top: ornament.top, rotate: `${ornament.rotate}deg`, animationDelay: ornament.delay }}
-            loading="lazy"
-            decoding="async"
-          />
-        );
-      })}
-    </div>
-  );
-};
+export const RoseAtmosphere: React.FC = () => (
+  <div className="rose-atmosphere" aria-hidden="true">
+    {ornaments.map((ornament, index) => {
+      const source = ornament.asset === "rose" ? "/rose-petal.svg" : "/rose-sprig.svg";
+      const isLeft = ornament.side === "left";
+      return (
+        <img
+          key={`${ornament.asset}-${index}`}
+          src={source}
+          alt=""
+          className={`rose-ornament ${ornament.size} ${isLeft ? "rose-from-left" : "rose-from-right"}`}
+          style={{ top: ornament.top, rotate: `${ornament.rotate}deg`, animationDelay: ornament.delay }}
+        />
+      );
+    })}
+  </div>
+);

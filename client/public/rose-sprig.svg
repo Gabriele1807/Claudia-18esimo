@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" role="img" aria-labelledby="title desc">
+  <title id="title">Decorative rose sprig</title>
+  <desc id="desc">A leafy branch with a rose</desc>
+  <defs>
+    <linearGradient id="branch" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#214d35"/>
+      <stop offset="1" stop-color="#a1c961"/>
+    </linearGradient>
+    <radialGradient id="flower" cx="35%" cy="30%">
+      <stop stop-color="#ffaaa7"/>
+      <stop offset=".45" stop-color="#d52e44"/>
+      <stop offset="1" stop-color="#6b1025"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 232C110 192 155 139 213 74c35-39 76-59 151-63" stroke="url(#branch)" stroke-width="9"/>
+    <g fill="#477f4e" stroke="#9ac75e" stroke-width="3">
+      <path d="M99 192C63 190 39 171 30 143c34 1 59 17 69 49Z"/>
+      <path d="M130 165c-2-34 12-58 42-75 7 32-8 57-42 75Z"/>
+      <path d="M171 122c-5-34 10-59 39-75 6 30-8 55-39 75Z"/>
+      <path d="M212 91c2-31 20-51 50-60 0 29-17 49-50 60Z"/>
+      <path d="M78 207c-32 21-61 17-80-3 31-16 58-15 80 3Z"/>
+    </g>
+    <g transform="translate(292 42) scale(.72)">
+      <path d="M0 86c-7-28 7-45 27-59 23-16 56-11 70 13 17-15 48-6 55 20 8 30-17 55-49 48-14 22-43 22-52-2-18 14-39 6-51-20Z" fill="url(#flower)" stroke="#7e182d" stroke-width="5"/>
+      <path d="M38 72c-15-18 1-42 20-40 19 1 29 23 15 39-10 11-24 11-35 1Z" fill="#ff7274" stroke="#8e1730" stroke-width="4"/>
+      <path d="M47 70c-4-10 4-19 14-19s17 9 13 19c-5 10-20 11-27 0Z" fill="#b51d38" stroke="#8e1730" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
