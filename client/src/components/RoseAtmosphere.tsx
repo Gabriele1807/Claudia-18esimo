@@ -19,8 +19,8 @@ export const RoseAtmosphere: React.FC = () => {
       {ornaments.map((ornament, index) => {
         const isLeft = ornament.side === "left";
         const source = ornament.asset === "rose"
-          ? "/manus-storage/claudia-red-rose_95ad43de.png"
-          : "/manus-storage/claudia-rose-sprig_b6570097.png";
+          ? "/rose-petal.svg"
+          : "/rose-sprig.svg";
 
         return (
           <img
@@ -29,6 +29,8 @@ export const RoseAtmosphere: React.FC = () => {
             alt=""
             className={`rose-ornament ${ornament.size} ${isLeft ? "rose-from-left" : "rose-from-right"}`}
             style={{ top: ornament.top, rotate: `${ornament.rotate}deg`, animationDelay: ornament.delay }}
+            loading="lazy"
+            decoding="async"
           />
         );
       })}
