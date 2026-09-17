@@ -1,0 +1,8 @@
+node_modules
+.dist
+.git
+.manus-logs
+.webdev
+dist
+*.log
+/home/ubuntu/create_embedded_rose_svgs.py

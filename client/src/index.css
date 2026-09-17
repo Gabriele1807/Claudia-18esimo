@@ -1,0 +1,248 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #06080d;
+  --foreground: #f4efe6;
+  --card: #0b0f17;
+  --card-foreground: #f4efe6;
+  --popover: #0e1420;
+  --popover-foreground: #f4efe6;
+  --primary: #d4af37;
+  --primary-foreground: #06080d;
+  --secondary: #121824;
+  --secondary-foreground: #e4d8b9;
+  --muted: #172030;
+  --muted-foreground: #9ba3b4;
+  --accent: #222d42;
+  --accent-foreground: #fbf5e6;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: rgba(212, 175, 55, 0.18);
+  --input: rgba(212, 175, 55, 0.25);
+  --ring: #d4af37;
+
+  /* Custom Luxury Editorial Tokens */
+  --gold-glow: rgba(212, 175, 55, 0.22);
+  --gold-accent: #e5c365;
+  --champagne: #fae8c8;
+  --night-deep: #040508;
+  --night-card: #0c111a;
+  --rb-navy: #061126;
+  --rb-red: #ea1d2d;
+  --rb-yellow: #f8be00;
+}
+
+.dark {
+  --background: #06080d;
+  --foreground: #f4efe6;
+  --card: #0b0f17;
+  --card-foreground: #f4efe6;
+  --popover: #0e1420;
+  --popover-foreground: #f4efe6;
+  --primary: #d4af37;
+  --primary-foreground: #06080d;
+  --secondary: #121824;
+  --secondary-foreground: #e4d8b9;
+  --muted: #172030;
+  --muted-foreground: #9ba3b4;
+  --accent: #222d42;
+  --accent-foreground: #fbf5e6;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: rgba(212, 175, 55, 0.18);
+  --input: rgba(212, 175, 55, 0.25);
+  --ring: #d4af37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: #06080d;
+    color: #f4efe6;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, .font-serif-luxury {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-editorial-italic {
+    font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom Luxury Gradients & Effects */
+.bg-radial-luxury {
+  background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.12) 0%, rgba(6, 8, 13, 0) 70%);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, rgba(10, 16, 26, 0) 70%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fae8c8 35%, #d4af37 70%, #aa8014 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(to right, rgba(212,175,55,0.05), rgba(212,175,55,0.5), rgba(212,175,55,0.05)) 1;
+}
+
+.card-luxury {
+  background: linear-gradient(180deg, rgba(16, 23, 36, 0.82) 0%, rgba(10, 14, 22, 0.92) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(212, 175, 55, 0.08);
+}
+
+.card-luxury:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px -4px rgba(212, 175, 55, 0.18);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+/* Romantic botanical layer: the golden dust canvas remains independent and perpetual. */
+.rose-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rose-ornament {
+  position: absolute;
+  max-height: 300px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  opacity: 0.085;
+  filter: saturate(0.9) contrast(1.05);
+  will-change: transform, opacity;
+  animation-duration: 13s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.rose-from-left {
+  left: -2.5rem;
+  animation-name: rose-bloom-left;
+}
+
+.rose-from-right {
+  right: -2.5rem;
+  animation-name: rose-bloom-right;
+}
+
+.hero-rose {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: saturate(0.9) contrast(1.05);
+  animation: hero-rose-breathe 10s ease-in-out infinite alternate;
+}
+
+.hero-rose-left {
+  left: -3rem;
+  bottom: 7rem;
+  width: 15rem;
+  opacity: 0.22;
+  rotate: -20deg;
+}
+
+.hero-rose-right {
+  right: -2.5rem;
+  top: 28%;
+  width: 17rem;
+  opacity: 0.2;
+  rotate: 12deg;
+}
+
+@keyframes hero-rose-breathe {
+  0% { opacity: 0.08; transform: translate3d(0, 8px, 0) scale(0.98); }
+  100% { opacity: 0.2; transform: translate3d(3px, -3px, 0) scale(1.02); }
+}
+
+@keyframes rose-bloom-left {
+  0%, 100% { opacity: 0.065; transform: translate3d(-30px, 10px, 0) scale(0.97); }
+  45% { opacity: 0.3; transform: translate3d(8px, 0, 0) scale(1); }
+  65% { opacity: 0.18; transform: translate3d(-3px, -3px, 0) scale(1.02); }
+}
+
+@keyframes rose-bloom-right {
+  0%, 100% { opacity: 0.065; transform: translate3d(30px, -8px, 0) scale(0.97); }
+  45% { opacity: 0.3; transform: translate3d(-8px, 0, 0) scale(1); }
+  65% { opacity: 0.18; transform: translate3d(3px, 3px, 0) scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rose-ornament, .hero-rose { animation: none; opacity: 0.14; }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: 1100px;
+    }
+  }
+}
